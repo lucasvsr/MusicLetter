@@ -2,6 +2,7 @@ package ifpe.tads.mmps.projeto.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,10 +14,10 @@ public class Musica {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	@Column(name="titulo", nullable=false)
-	private String nome;
-	@Column(name="titulo", nullable=false)
+	private String titulo;
+	@Column(name="letra", nullable=false)
 	private String letra;
-	@Column(name="titulo", nullable=false)
+	@Column(name="idArtista", nullable=false)
 	private long idArtista;
 	@Column(name="titulo", nullable=false)
 	private long idAlbum;
