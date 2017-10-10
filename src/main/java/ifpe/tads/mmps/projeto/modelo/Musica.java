@@ -48,7 +48,6 @@ public class Musica {
 	@Column(name = "TXT_COD_ARTISTA")
 	private String codArtista;
 
-    @Size(max = 6)
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "tb_artista", 
     joinColumns = {
