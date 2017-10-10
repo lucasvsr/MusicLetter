@@ -13,9 +13,9 @@ import javax.validation.constraints.Size;
  * @author leandro
  */
 @Entity
-@Table(name = "tb_artista")
+@Table(name = "tb_album")
 
-public class Artista {
+public class Album {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,12 +23,8 @@ public class Artista {
 	private Long id;
 
 	@Size(max = 20)
-	@Column(name = "TXT_NOME")
-	private String nome;
-
-	@Size(max = 20)
-	@Column(name = "TXT_PAIS")
-	private String pais;
+	@Column(name = "TXT_TITULO")
+	private String titulo;
 
 	public Long getId() {
 		return id;
@@ -38,20 +34,12 @@ public class Artista {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getPais() {
-		return pais;
-	}
-
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 }
