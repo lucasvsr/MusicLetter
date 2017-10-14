@@ -42,30 +42,26 @@ public class Musica {
 	private String duracao;
 
 	@Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DT_CRIACAO")
-    private Date dataCriacao;
+	@Column(name = "DT_CRIACAO")
+	private Date dataCriacao;
 
 	@Size(max = 20)
 	@Column(name = "TXT_COD_ARTISTA")
 	private String codArtista;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "tb_artista", 
-    joinColumns = {
-        @JoinColumn(name = "ID_MUSICA", nullable = false, updatable = false) 
-        },
-    inverseJoinColumns = {
-    		@JoinColumn(name = "ID_ARTISTA", nullable = false, updatable = false) 
-    })
-    private List<Artista> artistas;
-        
-    @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
-    @JoinColumn(name = "ID_ALBUM" )
-    private Album album;
-    
-    @Column(name = "TXT_LETRA")
-    private String letra;
-    
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "tb_artista", joinColumns = {
+			@JoinColumn(name = "ID_MUSICA", nullable = false, updatable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "ID_ARTISTA", nullable = false, updatable = false) })
+	private List<Artista> artistas;
+
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
+	@JoinColumn(name = "ID_ALBUM")
+	private Album album;
+
+	@Column(name = "TXT_LETRA")
+	private String letra;
+
 	public String getLetra() {
 		return letra;
 	}
