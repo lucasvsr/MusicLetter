@@ -22,6 +22,7 @@ import javax.validation.constraints.Size;
  *
  * @author leandro
  */
+
 @Entity
 @Table(name = "tb_musica")
 
@@ -57,13 +58,22 @@ public class Musica {
     		@JoinColumn(name = "ID_ARTISTA", nullable = false, updatable = false) 
     })
     private List<Artista> artistas;
-    
-    
+        
     @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
     @JoinColumn(name = "ID_ALBUM" )
     private Album album;
     
+    @Column(name = "TXT_LETRA")
+    private String letra;
     
+	public String getLetra() {
+		return letra;
+	}
+
+	public void setLetra(String letra) {
+		this.letra = letra;
+	}
+
 	public Long getId() {
 		return id;
 	}

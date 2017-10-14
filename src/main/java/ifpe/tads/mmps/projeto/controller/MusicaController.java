@@ -1,9 +1,12 @@
 package ifpe.tads.mmps.projeto.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import ifpe.tads.mmps.projeto.modelo.LetraBuilder;
 import ifpe.tads.mmps.projeto.modelo.Musica;
 import ifpe.tads.mmps.projeto.repositorio.MusicaRepository;
+import net.minidev.json.parser.ParseException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,7 +38,10 @@ public class MusicaController {
       }
  
       @RequestMapping(value = "/adicionar", method = RequestMethod.POST)
-      public String adicionaLivroAutor(Musica musica) {
+      public String adicionarMusica(Musica musica) throws IOException, ParseException {
+    	  	LetraBuilder builder = new LetraBuilder();
+    	  
+    	  	musica.setLetra(builder.getLetra(musica.getArtistas(), musica.getTitulo()));
             musicaRepository.save(musica);
             return "listaMusicas";
       }
